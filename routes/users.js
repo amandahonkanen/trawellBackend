@@ -126,7 +126,7 @@ router.post('/:id', upload.single('file'), (req, res, next) => {
   console.log("user picture: ", req.file);
 
   let userToUpdate = {
-    image:  `/uploads/${req.file.filename}`
+    image:  `uploads/${req.file.filename}`
   };
 
   console.log(userToUpdate)
