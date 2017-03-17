@@ -8,7 +8,7 @@ const passport   = require('./config/passport');
 var auth         = require('./routes/auth');
 var users        = require('./routes/users');
 var agendas        = require('./routes/agendas');
-var cors         = require('cors');
+var cors         = require('cors')();
 var requests     = require('./routes/requests');
 var multer = require('multer');
 var agendas = require('./routes/agendas');
@@ -22,13 +22,14 @@ require('./config/database');
 var app = express();
 
 
-var corsOptions = {credentials: true, origin: 'http://localhost:4200'};
+// var corsOptions = {credentials: true, origin: 'http://localhost:4200'};
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-app.options('*', cors(corsOptions));
-app.use(cors(corsOptions));
+
+app.use(cors);
+app.options('*', cors);
 
 app.use(passport.initialize());
 // uncomment after placing your favicon in /public
