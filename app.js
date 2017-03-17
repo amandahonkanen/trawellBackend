@@ -50,7 +50,7 @@ app.use('/api/agenda', agendas);
 
 // app.use('/api/phones', passport.authenticate('jwt', { session: false }), phones);
 
-app.use(function(req, res)
+app.use(function(req, res) {
   res.sendfile(__dirname + '/public/index.html');
 });
 
