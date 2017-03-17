@@ -123,10 +123,10 @@ router.delete('/:id', (req, res) => {
 
 router.post('/:id', upload.single('file'), (req, res, next) => {
   var userId = req.params.id;
-  console.log("userId: ", userId);
+  console.log("user picture: ", req.file);
 
   let userToUpdate = {
-    image:  `uploads/${req.file.filename}`
+    image:  `/uploads/${req.file.filename}`
   };
 
   console.log(userToUpdate)
